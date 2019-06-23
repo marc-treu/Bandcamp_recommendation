@@ -1,4 +1,5 @@
 import abc
+from bs4 import BeautifulSoup
 import requests
 
 
@@ -17,6 +18,10 @@ class FanWebScroller(WebScroller):
 
     @staticmethod
     def get_fan_data(fan):
+        html_page = requests.get(fan)
+        soup = BeautifulSoup(html_page.text, 'html.parser')
+        soup.find_all("span", class_="count")
+        print(soup)
         return True
 
 

@@ -1,6 +1,10 @@
 import WebScroller as ws
 
+True
+print("ok")
 
-if __main__ == '__name__':
+if __name__ == "__main__":
 
-    marc = ws.FanWebScroller("https://bandcamp.com/marctreu/")
+    print("ok")
+    marc = ws.FanWebScroller.get_fan_data("https://bandcamp.com/marctreu/")
+
