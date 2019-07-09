@@ -1,7 +1,4 @@
-import WebScroller as ws
-
-True
-print("ok")
+from BandCampAPI import AbstractScroller as ws
 
 if __name__ == "__main__":
 
