@@ -3,13 +3,13 @@ from bs4 import BeautifulSoup
 import requests
 
 
-class WebScroller(abc.ABCMeta):
+class AbstractScroller(abc.ABCMeta):
 
     @abc.abstractmethod
     def get_data(self):
         pass
 
-
+"""
 class FanWebScroller(WebScroller):
 
     @staticmethod
@@ -34,4 +34,4 @@ class ArtistWebScroller(WebScroller):
     @staticmethod
     def get_fan_data(artist):
         return True
-
+"""
