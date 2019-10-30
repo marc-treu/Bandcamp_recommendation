@@ -13,3 +13,13 @@ def check_data_exist():
 def initialise_system():
     if not check_data_exist():
         os.mkdir('data')
+
+
+def formate_url(url):
+    if 'bandcamp.com' in url:
+        return url
+    return "https://bandcamp.com/" + url
+
+
+def load_data():
+    pass
