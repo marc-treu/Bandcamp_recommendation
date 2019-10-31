@@ -1,18 +1,22 @@
 from BandCampAPI import Fan, FanScroller
 from Utils.utils import *
 from Interface_terminal.interface import *
-import requests
-from bs4 import BeautifulSoup
-import json
+
+
+def create_fan():
+
+    fan = FanScroller.get_data_initialise(formate_url(welcome()))
+    res = FanScroller.get_discography(fan)
+    fan.fill(res)
+    create_data_base()
+    save_data(fan, fan.get_name())
+    return fan
 
 
 def main():
 
-    if check_data_exist():
-        load_data()
-    else:
-        f = FanScroller.FanScroller.get_data_initialise(formate_url(welcome()))
-        print(f)
+    # We load or create the fan collection
+    fan = load_data() if check_data_exist() else create_fan()
 
 
 if __name__ == '__main__':
