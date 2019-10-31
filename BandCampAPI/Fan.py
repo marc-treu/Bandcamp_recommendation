@@ -11,6 +11,12 @@ class Fan:
         self.fav_genre = fav_genre
         self.length_collection = length_collection
         self.length_wishlist = length_wishlist
+        self.collection = False
+
+    def fill(self, list_album):
+        self.collection = set()
+        for album in list_album:
+            self.collection.add(album.get_album_id())
 
     def get_collection(self):
         pass
