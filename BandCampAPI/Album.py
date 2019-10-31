@@ -17,6 +17,9 @@ class Album:
     def get_band_id(self):
         return self.band_id
 
+    def get_album_id(self):
+        return self.album_id
+
     def get_url(self):
         return self.url
 
