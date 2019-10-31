@@ -10,9 +10,10 @@ class Album:
         self.url = url
         self.genre_id = genre_id
         self.collected_count = collected_count
+        self.fans = False
 
-    def get_collection(self):
-        pass
+    def is_fill(self):
+        return self.fans is not False
 
     def get_band_id(self):
         return self.band_id
