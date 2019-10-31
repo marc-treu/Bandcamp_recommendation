@@ -2,8 +2,8 @@
 
 class Fan:
 
-    def __init__(self, id, name, url, location, bio, fav_genre, length_collection, length_wishlist):
-        self.id = id
+    def __init__(self, fan_id, name, url, location, bio, fav_genre, length_collection, length_wishlist):
+        self.fan_id = fan_id
         self.name = name
         self.url = url
         self.location = location
@@ -12,6 +12,9 @@ class Fan:
         self.length_collection = length_collection
         self.length_wishlist = length_wishlist
         self.collection = False
+
+    def is_fill(self):
+        return self.collection is not False
 
     def fill(self, list_album):
         self.collection = set()
@@ -22,7 +25,10 @@ class Fan:
         pass
 
     def get_id(self):
-        return self.id
+        return self.fan_id
+
+    def get_name(self):
+        return self.name
 
     def get_url(self):
         return self.url
