@@ -1,4 +1,5 @@
 import os
+import pickle as pkl
 
 
 def check_data_exist():
@@ -23,3 +24,11 @@ def formate_url(url):
 
 def load_data():
     pass
+
+
+def save_data(data, data_id):
+    return pkl.dump(data,  open('data/' + data_id, 'wb'))
+
+
+def create_data_base():
+    os.mkdir('data')
