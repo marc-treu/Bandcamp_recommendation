@@ -6,7 +6,7 @@ class Album:
         self.band_id = band_id
         self.band_name = band_name
         self.band_url = band_url
-        self.album_id = album_id
+        self.album_id = Album.https(album_id)
         self.album_name = album_name
         self.album_url = album_url
         self.genre_id = genre_id
@@ -30,3 +30,7 @@ class Album:
 
     def __repr__(self):
         return str(self.__dict__)
+
+    @staticmethod
+    def https(url):
+        return 'https' + url[:4] if not url.startswith('https') else url
