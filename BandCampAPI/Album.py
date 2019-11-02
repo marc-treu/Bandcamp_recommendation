@@ -5,8 +5,8 @@ class Album:
     def __init__(self, band_id, band_name, band_url, album_id, album_name, album_url, genre_id, collected_count):
         self.band_id = band_id
         self.band_name = band_name
-        self.band_url = band_url
-        self.album_id = Album.https(album_id)
+        self.band_url = Album.https(band_url)
+        self.album_id = album_id
         self.album_name = album_name
         self.album_url = Album.https(album_url)
         self.genre_id = genre_id
@@ -39,4 +39,4 @@ class Album:
 
     @staticmethod
     def https(url):
-        return 'https' + url[:4] if not url.startswith('https') else url
+        return 'https' + url[4:] if not url.startswith('https') else url

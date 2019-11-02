@@ -67,6 +67,6 @@ def get_fans(band):
     result = []
 
     for fan in fans:
-        result.append(Fan(fan['fan_id'], fan['swimlovesyou'], fan['url'], None, None, None, None, None))
+        result.append(Fan(fan['fan_id'], fan['username'], fan['url'], None, None, None, None, None))
 
     return result
