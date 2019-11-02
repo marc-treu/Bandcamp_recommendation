@@ -5,7 +5,7 @@ from Interface_terminal.interface import *
 
 def create_fan():
 
-    fan = Scrapper.get_data_initialise(formate_url(welcome()))
+    fan = Scrapper.get_data_fan(formate_url(welcome()))
     res = Scrapper.get_discography(fan)
     fan.fill(res)
     create_data_base()
