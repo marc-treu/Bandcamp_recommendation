@@ -6,7 +6,7 @@ from BandCampAPI.Fan import Fan
 from BandCampAPI.Album import Album
 
 
-def get_data_initialise(url):
+def get_data_fan(url):
     r = requests.get(url)
     if r.status_code != 200:
         return False
@@ -56,17 +56,17 @@ def get_fans(band):
 
     s = requests.session()
 
-    header = {'Host': band.get_band_url()}
+    header = {'Host': band.get_band_url_short()}
 
-    payload = {"tralbum_type": "a", "tralbum_id": band.get_album_id(), "token": "1:1:1:0:1:0", "count": 1000}
+    payload = {"tralbum_type": "a", "tralbum_id": band.get_album_id(), "token": "1:1:1:0:1:0",
+               "count": band.get_collected_count()}
 
-    getGPs = s.post('https://alarmist.bandcamp.com/api/tralbumcollectors/2/thumbs', data=json.dumps(payload),
-                    headers=header)
+    fans = s.post(band.get_band_url() + '/api/tralbumcollectors/2/thumbs', data=json.dumps(payload), headers=header)\
+        .json()['results']
 
     result = []
 
-    for item in collection_items['items']:
-        result.append(Album(item['band_id'], item['band_name'], item['album_id'], item['album_title'],
-                            item['item_url'], item['genre_id'], item['also_collected_count']))
+    for fan in fans:
+        result.append(Fan(fan['fan_id'], fan['swimlovesyou'], fan['url'], None, None, None, None, None))
 
     return result
