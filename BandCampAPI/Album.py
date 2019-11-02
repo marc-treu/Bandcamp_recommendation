@@ -8,7 +8,7 @@ class Album:
         self.band_url = band_url
         self.album_id = Album.https(album_id)
         self.album_name = album_name
-        self.album_url = album_url
+        self.album_url = Album.https(album_url)
         self.genre_id = genre_id
         self.collected_count = collected_count
         self.fans = False
@@ -22,11 +22,17 @@ class Album:
     def get_band_url(self):
         return self.band_url
 
+    def get_band_url_short(self):
+        return self.band_url[8:]
+
     def get_album_id(self):
         return self.album_id
 
     def get_album_url(self):
         return self.album_url
+
+    def get_collected_count(self):
+        return self.collected_count
 
     def __repr__(self):
         return str(self.__dict__)
